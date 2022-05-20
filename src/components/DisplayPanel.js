@@ -1,4 +1,4 @@
-import {Typography} from "@mui/material";
+import { Typography } from "@mui/material";
 import {
     Accordion,
     AccordionDetails,
@@ -9,34 +9,36 @@ import {
     Container, FormControl,
     FormControlLabel, FormLabel, Radio, RadioGroup
 } from "@material-ui/core";
-import {useState} from "react";
+import { useState } from "react";
 import TableData from "./TableData";
 import Plot from "./Plot";
 import Histogram from "./Histogram";
 import Circle from "./Circle";
 
 function DisplayPanel(props) {
+    const { selected_years, selected_countries, data } = props
     const [current_widget, setCurrentWidget] = useState('empty');
 
-    function handleChangeCurrentWidget(event){
+    const filteredData = data.filter((item) => selected_years.includes(item.date))
+    function handleChangeCurrentWidget(event) {
         setCurrentWidget(event.target.value);
     }
 
-    function showCurrentWidget(){
-        switch( current_widget){
+    function showCurrentWidget() {
+        switch (current_widget) {
             case ('plot'):
-                return <Plot/>
+                return <Plot data={filteredData} />
             case ('table'):
-                return <TableData/>
+                return <TableData data={filteredData} />
             case ('circle'):
-                return <Circle/>
+                return <Circle data={filteredData} />
             case ('histogram'):
-                return <Histogram/>
+                return <Histogram data={filteredData} />
             default:
         }
     }
 
-    function createAppBar(){
+    function createAppBar() {
         return (
             <>
                 <FormControl>
@@ -59,11 +61,11 @@ function DisplayPanel(props) {
     return (
         <>
             {createAppBar()}
-            {props.selected_countries.map((item)=>(
+            {selected_countries.map((item) => (
                 <Typography key={item}>{item}</Typography>
             ))}
             <Typography variant='h5'>MainDisplay</Typography>
-            {props.selected_years.map((item)=>(
+            {selected_years.map((item) => (
                 <Typography key={item}>{item}</Typography>
             ))}
             {showCurrentWidget()}

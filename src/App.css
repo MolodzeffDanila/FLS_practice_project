@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+table{
+	border: 1px solid rgb(0, 0, 0);
+	table-layout: fixed;
+	width: 500px;
+	margin-bottom: 20px;
+}
+
+table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #000000;
+}
+
+table th:first-of-type {
+	width: 25px;
+}
+
+table td{
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: left;
+}
+
+table tbody tr:nth-child(odd){
+	background: #fff;
+}
+
+table tbody tr:nth-child(even){
+	background: #F7F7F7;
+}
+
+.chart-container{
+	width: 80%;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.chart {
+	width: 80%;
+}

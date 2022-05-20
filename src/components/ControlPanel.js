@@ -1,25 +1,24 @@
-import {useEffect} from "react";
-import MainNavBar from "./MainNavBar";
-import {Typography} from "@mui/material";
-import {Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup} from "@material-ui/core";
+//import { useEffect } from "react";
+//import MainNavBar from "./MainNavBar";
+import { Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {blue} from "@material-ui/core/colors";
+//import { blue } from "@material-ui/core/colors";
 
 function ControlPanel(props) {
 
     function handleCheckboxClickCountries(event) {
-        if(event.target.checked){
+        if (event.target.checked) {
             props.setSelected(props.selected_countries.concat([event.target.id]));
-        }else{
+        } else {
             props.setSelected((prev) => prev.filter((item) => item !== event.target.id));
         }
-
     }
 
     function handleCheckboxClickYears(event) {
-        if(event.target.checked){
+        if (event.target.checked) {
             props.setYears(props.selected_years.concat([event.target.id]));
-        }else{
+        } else {
             props.setYears((prev) => prev.filter((item) => item !== event.target.id));
         }
     }
@@ -29,7 +28,7 @@ function ControlPanel(props) {
             <Typography variant='h3'>Parameters</Typography>
             <Accordion>
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon/>}
+                    expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -37,15 +36,15 @@ function ControlPanel(props) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <FormGroup>
-                        {props.countries.map((item)=>(
-                            <FormControlLabel key={item} control={<Checkbox id={item} onClick={handleCheckboxClickCountries}/>} label={item} />
+                        {props.countries.map((item) => (
+                            <FormControlLabel key={item} control={<Checkbox id={item} onClick={handleCheckboxClickCountries} />} label={item} />
                         ))}
                     </FormGroup>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon/>}
+                    expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                 >
@@ -57,18 +56,18 @@ function ControlPanel(props) {
             </Accordion>
             <Accordion>
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon/>}
+                    expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                 >
                     <Typography variant='h5'>Times</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                        <FormGroup>
-                            {props.years.map((item)=>(
-                                <FormControlLabel key={item+'0'} control={<Checkbox id={item+'1'} onClick={handleCheckboxClickYears}/>} label={item} />
-                            ))}
-                        </FormGroup>
+                    <FormGroup>
+                        {props.years.map((item) => (
+                            <FormControlLabel key={item + '0'} control={<Checkbox id={item} onClick={handleCheckboxClickYears} />} label={item} />
+                        ))}
+                    </FormGroup>
                 </AccordionDetails>
             </Accordion>
         </>
