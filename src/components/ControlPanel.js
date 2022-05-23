@@ -1,9 +1,6 @@
-//import { useEffect } from "react";
-//import MainNavBar from "./MainNavBar";
 import { Typography } from "@mui/material";
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-//import { blue } from "@material-ui/core/colors";
 
 function ControlPanel(props) {
 

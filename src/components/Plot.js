@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Typography } from "@mui/material";
-//import { FormControl, FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -81,7 +80,7 @@ function Plot(props) {
             <div className='chart-container'>
                 <div className='chart'>
                     <Line options={options} data={dataChart} ref={chartLineRef} />
-                    <Button variant="contained" color='primary' onClick={handleLineExport}>Сохранить в формете png</Button>
+                    <Button variant="contained" color='primary' onClick={handleLineExport}>Сохранить в формате png</Button>
                 </div>
             </div>
         </>

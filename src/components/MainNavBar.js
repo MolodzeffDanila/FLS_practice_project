@@ -1,6 +1,4 @@
-import {useState} from "react";
-import {AppBar, Button, Container, createTheme, IconButton, Toolbar, Typography} from "@mui/material";
-import {ThemeProvider} from "@emotion/react";
+import {AppBar, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from '@material-ui/icons/Menu';
 
 function MainNavBar(props) {
