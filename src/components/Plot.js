@@ -39,7 +39,6 @@ export const options = {
 
 function Plot(props) {
     const { data } = props
-    //console.log(data)
     const chartLineRef = useRef(null);
     const labels = data?.map((item) => item.date)
     const dataChart = {
@@ -73,6 +72,7 @@ function Plot(props) {
         link.download = "chartLine.png"; //имя загружаемого файла
         link.href = chartLineRef.current.toBase64Image('png', 1);
         link.click();//функция щелчка
+        link.remove();
     }
     return (
         <>

@@ -8,6 +8,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function ControlPanel(props) {
 
     function handleCheckboxClickCountries(event) {
+        if (props.is_showed_modal === false){
+            props.showModal(true)
+        }
         if (event.target.checked) {
             props.setSelected(props.selected_countries.concat([event.target.id]));
         } else {
@@ -15,14 +18,28 @@ function ControlPanel(props) {
         }
     }
 
+    function handleCheckboxClickSeries(event){
+        if (props.is_showed_modal === false){
+            props.showModal(true)
+        }
+        if (event.target.checked) {
+            props.setSeries(props.selected_series.concat([event.target.id]));
+        } else {
+            props.setSeries((prev) => prev.filter((item) => item !== event.target.id));
+        }
+    }
+
     function handleCheckboxClickYears(event) {
+        if (props.is_showed_modal === false){
+            props.showModal(true)
+        }
         if (event.target.checked) {
             props.setYears(props.selected_years.concat([event.target.id]));
         } else {
             props.setYears((prev) => prev.filter((item) => item !== event.target.id));
         }
     }
-
+    // Accordion через for переписать
     return (
         <>
             <Typography variant='h3'>Parameters</Typography>
@@ -51,7 +68,11 @@ function ControlPanel(props) {
                     <Typography variant='h5'>Series</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography variant='h4'>COMING SOON...</Typography>
+                    <FormGroup>
+                        {props.series.map((item) => (
+                            <FormControlLabel key={item} control={<Checkbox id={item} onClick={handleCheckboxClickSeries} />} label={item} />
+                        ))}
+                    </FormGroup>
                 </AccordionDetails>
             </Accordion>
             <Accordion>

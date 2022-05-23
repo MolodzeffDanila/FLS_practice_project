@@ -1,44 +1,94 @@
 import { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
-//import { FormControl, FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
-//import './App.css';
+import Typography from '@mui/material/Typography';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { styled } from '@mui/material/styles';
+import {TablePagination} from "@material-ui/core";
 
 function TableData(props) {
     const { data } = props
     const [selected, setSelected] = useState([]);
     const [selectedData, setSelectedData] = useState([]);
+
+    const [rowsPerPage, setRowsPerPage ] = useState(7);
+    const [page, setPage] = useState(0)
+    const columns = [
+            {
+                field: 'datasets',
+                headerName: 'Country',
+                width: 150,
+            },
+            {
+                field: 'status',
+                headerName: 'Year',
+                type: 'number',
+                width: 150,
+            },
+            {
+                field: 'message',
+                headerName: 'Value',
+                type: 'number',
+                width: 150,
+            },
+        ]
+
     useEffect(() => {
         const newSelectedData = []
         selected.forEach((year) => newSelectedData.push(data.find((item) => item.date === year)))
         setSelectedData(newSelectedData)
     }, [selected, data])
 
+    function handleChangePage(event, newPage){
+        setPage(newPage)
+    }
+
+    function handleChangeRowsPerPage(event){
+        setPage(0);
+        setRowsPerPage(+event.target.value)
+    }
+
     return (
         <>
-            <Typography variant='h2'>Table</Typography>
-            <div>
-                <table>
-                    <caption>Africa and Economics</caption>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Country</th>
-                            <th>Year</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data?.map((item) => ( //создание строк в таблице
-                            <tr key={item.date}>
-                                <td></td>
-                                <td>{item.country.value}</td>
-                                <td>{item.date}</td>
-                                <td>{item.value}</td>
-                            </tr>
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            {columns.map((column) => (
+                                <TableCell width={column.width} key={column.field} align='left'
+                                           sx={{backgroundColor: "#1f7bdc",
+                                                color:"white",
+                                               fontSize:'14pt',
+                                               border: 0,
+                                           }}>
+                                    {column.headerName}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => ( //создание строк в таблице
+                            <TableRow key={item.date}>
+                                <TableCell>{item.country.value} </TableCell>
+                                <TableCell>{item.date} </TableCell>
+                                <TableCell>{item.value} </TableCell>
+                            </TableRow>
                         ))}
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[7, 10, data.length]}
+                component="div"
+                count={data.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
         </>
     );
 }

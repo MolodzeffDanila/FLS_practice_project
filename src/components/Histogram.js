@@ -73,6 +73,7 @@ function Histogram(props) {
         link.download = "chartBar.png";
         link.href = chartBarRef.current.toBase64Image('png', 1);
         link.click();
+        link.remove();
     }
     return (
         <>

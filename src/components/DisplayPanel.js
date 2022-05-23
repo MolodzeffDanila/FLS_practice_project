@@ -1,14 +1,9 @@
 import { Typography } from "@mui/material";
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    AppBar,
-    Button,
-    ButtonGroup, Checkbox,
-    Container, FormControl,
-    FormControlLabel, FormLabel, Radio, RadioGroup
+import { FormControl,
+    FormControlLabel,Radio, RadioGroup
 } from "@material-ui/core";
+
+import Button from '@mui/material/Button'
 import { useState } from "react";
 import TableData from "./TableData";
 import Plot from "./Plot";
@@ -38,6 +33,23 @@ function DisplayPanel(props) {
         }
     }
 
+    function requestForData(){
+        props.showModal(false)
+        console.log("countries", props.selected_countries)
+    }
+
+    function showButtonForRequest(){
+        if (props.is_showed_modal){
+            return (
+                <Button variant="contained" onClick={requestForData} color='primary'>Send request</Button>
+            )
+        }else{
+            return (
+                <Button variant="contained" onClick={requestForData} disabled>Send request</Button>
+            )
+        }
+    }
+
     function createAppBar() {
         return (
             <>
@@ -52,7 +64,9 @@ function DisplayPanel(props) {
                         <FormControlLabel value="table" control={<Radio />} label="TableData" />
                         <FormControlLabel value="circle" control={<Radio />} label="Circle" />
                         <FormControlLabel value="histogram" control={<Radio />} label="Histogram" />
+                        {showButtonForRequest()}
                     </RadioGroup>
+
                 </FormControl>
             </>
         );
@@ -61,13 +75,6 @@ function DisplayPanel(props) {
     return (
         <>
             {createAppBar()}
-            {selected_countries.map((item) => (
-                <Typography key={item}>{item}</Typography>
-            ))}
-            <Typography variant='h5'>MainDisplay</Typography>
-            {selected_years.map((item) => (
-                <Typography key={item}>{item}</Typography>
-            ))}
             {showCurrentWidget()}
         </>
     );

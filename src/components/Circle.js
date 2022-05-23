@@ -73,6 +73,7 @@ function Circle(props) {
         link.download = "chartPie.png"; //имя загружаемого файла
         link.href = chartPieRef.current.toBase64Image('png', 1);
         link.click();//функция щелчка
+        link.remove();
     }
     return (
         <>
