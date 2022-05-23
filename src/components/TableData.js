@@ -20,19 +20,19 @@ function TableData(props) {
             {
                 field: 'datasets',
                 headerName: 'Country',
-                width: 150,
+                width: 200,
             },
             {
                 field: 'status',
                 headerName: 'Year',
                 type: 'number',
-                width: 150,
+                width: 60,
             },
             {
                 field: 'message',
                 headerName: 'Value',
                 type: 'number',
-                width: 150,
+                width: 60,
             },
         ]
 
@@ -62,7 +62,8 @@ function TableData(props) {
                                            sx={{backgroundColor: "#1f7bdc",
                                                 color:"white",
                                                fontSize:'14pt',
-                                               border: 0,
+                                               border: 2,
+                                               borderRadius: 2
                                            }}>
                                     {column.headerName}
                                 </TableCell>

@@ -14,6 +14,7 @@ import {
 } from 'chart.js';
 
 import { Bar } from 'react-chartjs-2';
+import Button from "@mui/material/Button";
 
 ChartJS.register(
     CategoryScale,
@@ -80,7 +81,8 @@ function Histogram(props) {
             <Typography variant='h2'>Histogram</Typography>
             <div className='chart-container'>
                 <div className='chart'>
-                    <Bar options={options} data={dataChart} ref={chartBarRef} /><button onClick={handleBarExport}>Сохранить в формете png</button>
+                    <Bar options={options} data={dataChart} ref={chartBarRef} />
+                    <Button variant="contained" color='primary' onClick={handleBarExport}>Сохранить в формете png</Button>
                 </div>
             </div>
         </>

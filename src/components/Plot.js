@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 
 import { Line } from 'react-chartjs-2';
+import Button from "@mui/material/Button";
 
 ChartJS.register(
     CategoryScale,
@@ -79,7 +80,8 @@ function Plot(props) {
             <Typography variant='h2'>Plot</Typography>
             <div className='chart-container'>
                 <div className='chart'>
-                    <Line options={options} data={dataChart} ref={chartLineRef} /><button onClick={handleLineExport}>Сохранить в формете png</button>
+                    <Line options={options} data={dataChart} ref={chartLineRef} />
+                    <Button variant="contained" color='primary' onClick={handleLineExport}>Сохранить в формете png</Button>
                 </div>
             </div>
         </>

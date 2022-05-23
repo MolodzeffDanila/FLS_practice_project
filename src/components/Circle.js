@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 
 import { Pie } from 'react-chartjs-2';
+import Button from "@mui/material/Button";
 
 ChartJS.register(
     CategoryScale,
@@ -80,7 +81,8 @@ function Circle(props) {
             <Typography variant='h2'>Circle</Typography>
             <div className='chart-container'>
                 <div className='chart'>
-                    <Pie options={options} data={dataChart} ref={chartPieRef} /><button onClick={handlePieExport}>Сохранить в формете png</button>
+                    <Pie options={options} data={dataChart} ref={chartPieRef} />
+                    <Button variant="contained" color='primary' onClick={handlePieExport}>Сохранить в формете png</Button>
                 </div>
             </div>
         </>
