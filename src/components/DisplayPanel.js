@@ -1,13 +1,18 @@
 import { FormControl,
-    FormControlLabel,Radio, RadioGroup
+    FormControlLabel
 } from "@material-ui/core";
 
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 import Button from '@mui/material/Button'
 import { useState } from "react";
 import TableData from "./TableData";
 import Plot from "./Plot";
 import Histogram from "./Histogram";
 import Circle from "./Circle";
+import Box from "@mui/material/Box";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 function DisplayPanel(props) {
     const { selected_years, selected_countries, data } = props
@@ -19,22 +24,30 @@ function DisplayPanel(props) {
     }
 
     function showCurrentWidget() {
-        switch (current_widget) {
-            case ('plot'):
-                return <Plot data={filteredData} />
-            case ('table'):
-                return <TableData data={filteredData} />
-            case ('circle'):
-                return <Circle data={filteredData} />
-            case ('histogram'):
-                return <Histogram data={filteredData} />
-            default:
+        if(props.isLoading){
+            return(
+                <Box sx={{ display: 'flex' }}>
+                    <CircularProgress />
+                </Box>
+                );
+        }else{
+            switch (current_widget) {
+                case ('plot'):
+                    return <Plot data={filteredData} />
+                case ('table'):
+                    return <TableData data={filteredData} />
+                case ('circle'):
+                    return <Circle data={filteredData} />
+                case ('histogram'):
+                    return <Histogram data={filteredData} />
+                default:
+                    return <Plot data={filteredData} />
+            }
         }
     }
 
     function requestForData(){
         props.showModal(false)
-        console.log("countries", props.selected_countries)
     }
 
     function showButtonForRequest(){
