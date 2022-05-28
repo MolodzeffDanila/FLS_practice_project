@@ -1,13 +1,13 @@
 package db
 
 import (
-	"database/sql"
 	"fmt"
 	"github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 	"log"
 )
 
-var db *sql.DB
+var db *sqlx.DB
 
 func Init() {
 	// Capture connection properties
@@ -20,7 +20,7 @@ func Init() {
 	}
 	// Get a database handle.
 	var err error
-	db, err = sql.Open("mysql", cfg.FormatDSN())
+	db, err = sqlx.Open("mysql", cfg.FormatDSN())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -33,6 +33,6 @@ func Init() {
 	fmt.Println("Connected!")
 }
 
-func GetDB() *sql.DB {
+func GetDB() *sqlx.DB {
 	return db
 }
