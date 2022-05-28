@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS country(
     ,code_alpha_3 VARCHAR(3) NOT NULL
     ,name VARCHAR(255) NOT NULL
     ,name_official VARCHAR(255) NOT NULL
-    ,PRIMARY KEY(code_numeric)
+    ,PRIMARY KEY(code_alpha_3)
 );
 INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AF','AFGHANISTAN','Afghanistan','AFG','4');
 INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AL','ALBANIA','Albania','ALB','8');

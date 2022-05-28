@@ -15,7 +15,7 @@ func Init() {
 		User:   "root",
 		Passwd: "abracadabra",
 		Net:    "tcp",
-		Addr:   "localhost:3306",
+		Addr:   "db:3306",
 		DBName: "gdp",
 	}
 	// Get a database handle.
