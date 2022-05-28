@@ -1,6 +1,7 @@
 package main
 
 import (
+	"backend/db"
 	_ "backend/docs"
 	"backend/routers"
 )
@@ -13,8 +14,9 @@ import (
 // @contact.name muratom
 // @contact.email muratom73@gmail.com
 
-// @BasePath /v1
+// @BasePath /api/v1
 func main() {
+	db.Init()
 	router := routers.CreateRouters()
 	router.Run(":8080")
 }
