@@ -25,6 +25,12 @@ func GetIndicatorDataByCountry(c *gin.Context) {
 	c.String(http.StatusOK, "%v", "Good job!")
 }
 
+// GetIndicatorDataByCountryDate godoc
+// @Summary Retrieves all countries
+// @Produce json
+// @Success 200 {object} models.Country "OK"
+// @Failure	500 					    "Fail"
+// @Router /country [get]
 func GetIndicatorDataByCountryDate(c *gin.Context) {
 	c.String(http.StatusOK, "%v", "Good job!")
 
