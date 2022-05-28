@@ -5,17 +5,25 @@ import (
 	"github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"log"
+	"os"
 )
 
 var db *sqlx.DB
 
 func Init() {
+	// Choosing a bd host based on env var
+	var host string = os.Getenv("SQL_HOST")
+	if len(host) == 0 {
+		host = "localhost"
+	}
+	host = host + ":3306"
+
 	// Capture connection properties
 	cfg := mysql.Config{
 		User:   "root",
 		Passwd: "abracadabra",
 		Net:    "tcp",
-		Addr:   "db:3306",
+		Addr:   host,
 		DBName: "gdp",
 	}
 	// Get a database handle.

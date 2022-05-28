@@ -2,23 +2,29 @@ version: "3.5"
 
 services:
   db:
-    container_name: "FLS_db"
+    container_name: "fls_db"
     build: ./db
     restart: always
     environment:
       MYSQL_DATABASE: "gdp"
       MYSQL_ROOT_PASSWORD: "abracadabra"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
     volumes:
       - mysql_volume:/var/lib/mysql
 
   backend:
-    container_name: "FLS_backend"
+    container_name: "fls_backend"
     build: ./backend
     restart: always
     ports:
       - "8080:8080"
     expose:
       - "8080"
+    env_file:
+      - ./.env
 
 volumes:
   mysql_volume:

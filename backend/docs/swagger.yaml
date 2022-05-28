@@ -6,8 +6,6 @@ definitions:
         type: string
       country_name:
         type: string
-      id:
-        type: string
       yr_1960:
         type: string
       yr_1961:
@@ -142,6 +140,20 @@ info:
   title: World Bank GPD API
   version: "1.0"
 paths:
+  /country:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `Country`
   /gdp-constant-2015-us:
     get:
       parameters:
@@ -179,7 +191,26 @@ paths:
             type: array
         "500":
           description: Fail
-      summary: Retrieves data from table `GDP (constant 2015 US$)`
+      summary: Retrieves data from table `GDP (constant LCU)`
+  /gdp-current-lcu:
+    get:
+      parameters:
+      - description: search by countries
+        in: query
+        name: country-code-alpha-3
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (current LCU)`
   /gdp-current-us:
     get:
       parameters:
