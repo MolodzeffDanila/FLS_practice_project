@@ -7,7 +7,6 @@ import (
 )
 
 type CountryStatistic struct {
-	ID          *string `json:"id" db:"id"`
 	CountryName *string `json:"country_name" db:"country_name"`
 	CountryCode *string `json:"country_code" db:"country_code"`
 	YR2021      *string `json:"yr_2021" db:"2021_YR2021"`
