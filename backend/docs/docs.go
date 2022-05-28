@@ -38,7 +38,70 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/models.CountryStatistic"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.CountryStatistic"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Fail"
+                    }
+                }
+            }
+        },
+        "/gdp-constant-lcu": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves data from table ` + "`" + `GDP (constant 2015 US$)` + "`" + `",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "search by countries",
+                        "name": "country-code-alpha-3",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.CountryStatistic"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Fail"
+                    }
+                }
+            }
+        },
+        "/gdp-current-us": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves data from table ` + "`" + `GDP (current US$)` + "`" + `",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "search by countries",
+                        "name": "country-code-alpha-3",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.CountryStatistic"
+                            }
                         }
                     },
                     "500": {

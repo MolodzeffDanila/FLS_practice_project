@@ -155,8 +155,48 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/models.CountryStatistic'
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
         "500":
           description: Fail
       summary: Retrieves data from table `GDP (constant 2015 US$)`
+  /gdp-constant-lcu:
+    get:
+      parameters:
+      - description: search by countries
+        in: query
+        name: country-code-alpha-3
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (constant 2015 US$)`
+  /gdp-current-us:
+    get:
+      parameters:
+      - description: search by countries
+        in: query
+        name: country-code-alpha-3
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (current US$)`
 swagger: "2.0"
