@@ -101,7 +101,8 @@ func (cs *CountryStatistic) GetAll(tableName string) ([]CountryStatistic, error)
 
 func (cs *CountryStatistic) GetByCountry(tableName string, countryCodeAlpha3 []string) ([]CountryStatistic, error) {
 	database := db.GetDB()
-	query, args, err := sqlx.In("SELECT * FROM gdp_constant_2015_us WHERE country_code IN (?);", countryCodeAlpha3)
+	query := fmt.Sprintf("SELECT * FROM %s WHERE country_code IN (?);", tableName)
+	query, args, err := sqlx.In(query, countryCodeAlpha3)
 	if err != nil {
 		return nil, fmt.Errorf("GetByCountry: %v", err)
 	}

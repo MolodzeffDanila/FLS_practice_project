@@ -7,19 +7,19 @@ import (
 	"strings"
 )
 
-// GetGDPConstant2015US godoc
+// GetGDPConstantLCU godoc
 // @Summary Retrieves data from table `GDP (constant 2015 US$)`
 // @Produce json
 // @Param   country-code-alpha-3	query	string	false  "search by countries"
 // @Success 200 {array} models.CountryStatistic "OK"
 // @Failure	500 					    		  "Fail"
-// @Router /gdp-constant-2015-us [get]
-func GetGDPConstant2015US(c *gin.Context) {
+// @Router /gdp-constant-lcu [get]
+func GetGDPConstantLCU(c *gin.Context) {
 	cs := new(models.CountryStatistic)
 	countriesString := c.Query("country-code-alpha-3")
 	if countriesString != "" {
 		countries := strings.Split(countriesString, ",")
-		countryStatistics, err := cs.GetByCountry("gdp_constant_2015_us", countries)
+		countryStatistics, err := cs.GetByCountry("gdp_constant_lcu", countries)
 		if err != nil {
 			c.Error(err)
 			return
@@ -27,7 +27,7 @@ func GetGDPConstant2015US(c *gin.Context) {
 
 		c.IndentedJSON(http.StatusOK, countryStatistics)
 	} else {
-		countryStatistics, err := cs.GetAll("gdp_constant_2015_us")
+		countryStatistics, err := cs.GetAll("gdp_constant_lcu")
 		if err != nil {
 			c.Error(err)
 			return

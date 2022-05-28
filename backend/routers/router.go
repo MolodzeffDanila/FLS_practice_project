@@ -13,7 +13,11 @@ func CreateRouters() *gin.Engine {
 	Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	v1 := Router.Group("/api/v1/")
 	{
-		v1.GET("gdp-constant-2015-us", controllers.GetGdpConstant2015Us)
+		//	v1.GET("country", controllers.Country)
+		v1.GET("gdp-constant-2015-us", controllers.GetGDPConstant2015US)
+		v1.GET("gdp-constant-lcu", controllers.GetGDPConstantLCU)
+		//	v1.GET("gdp-current-lcu", controllers.GetGDPCurrentLCU)
+		//	v1.GET("gdp-current-us", controllers.GetGDPCurrentUS)
 	}
 
 	return Router
