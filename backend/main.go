@@ -6,7 +6,7 @@ import (
 	"backend/routers"
 )
 
-// @title World Bank GPD API
+// @title World Bank GDP API
 // @version 1.0
 // @description World Bank GPD API
 // @termsOfService http://swagger.io/terms/
