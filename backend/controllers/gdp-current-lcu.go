@@ -11,4 +11,6 @@ import (
 // @Success 200 {array} models.CountryStatistic "OK"
 // @Failure	500 					    		  "Fail"
 // @Router /gdp-current-lcu [get]
-func GetGDPCurrentLCU(c *gin.Context) {}
+func GetGDPCurrentLCU(c *gin.Context) {
+	getGDP("gdp_current_lcu")(c)
+}

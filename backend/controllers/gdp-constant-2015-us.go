@@ -11,4 +11,6 @@ import (
 // @Success 200 {array} models.CountryStatistic "OK"
 // @Failure	500 					    		  "Fail"
 // @Router /gdp-constant-2015-us [get]
-func GetGDPConstant2015US(c *gin.Context) {}
+func GetGDPConstant2015US(c *gin.Context) {
+	getGDP("gdp_constant_2015_us")(c)
+}
