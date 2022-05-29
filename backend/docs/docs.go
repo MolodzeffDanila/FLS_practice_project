@@ -131,36 +131,6 @@ const docTemplate = `{
                     }
                 }
             }
-        },
-        "/gdp-current-us": {
-            "get": {
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "Retrieves data from table ` + "`" + `GDP (current US$)` + "`" + `",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "search by countries",
-                        "name": "country-code-alpha-3",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/models.CountryStatistic"
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Fail"
-                    }
-                }
-            }
         }
     },
     "definitions": {
@@ -370,7 +340,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "",
 	BasePath:         "/api/v1",
 	Schemes:          []string{},
-	Title:            "World Bank GPD API",
+	Title:            "World Bank GDP API",
 	Description:      "World Bank GPD API",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,

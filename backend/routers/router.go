@@ -14,10 +14,10 @@ func CreateRouters() *gin.Engine {
 	v1 := Router.Group("/api/v1/")
 	{
 		v1.GET("country", controllers.GetCountries)
-		v1.GET("gdp-constant-2015-us", controllers.GetGDPConstant2015US)
-		v1.GET("gdp-constant-lcu", controllers.GetGDPConstantLCU)
-		v1.GET("gdp-current-lcu", controllers.GetGDPCurrentLCU)
-		v1.GET("gdp-current-us", controllers.GetGDPCurrentUS)
+		v1.GET("gdp-constant-2015-us", controllers.GetGDP("gdp_constant_2015_us"))
+		v1.GET("gdp-constant-lcu", controllers.GetGDP("gdp_constant_lcu"))
+		v1.GET("gdp-current-lcu", controllers.GetGDP("gdp_current_lcu"))
+		v1.GET("gdp-current-us", controllers.GetGDP("gdp_current_us"))
 	}
 
 	return Router

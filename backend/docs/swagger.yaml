@@ -137,7 +137,7 @@ info:
     name: muratom
   description: World Bank GPD API
   termsOfService: http://swagger.io/terms/
-  title: World Bank GPD API
+  title: World Bank GDP API
   version: "1.0"
 paths:
   /country:
@@ -211,23 +211,4 @@ paths:
         "500":
           description: Fail
       summary: Retrieves data from table `GDP (current LCU)`
-  /gdp-current-us:
-    get:
-      parameters:
-      - description: search by countries
-        in: query
-        name: country-code-alpha-3
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/models.CountryStatistic'
-            type: array
-        "500":
-          description: Fail
-      summary: Retrieves data from table `GDP (current US$)`
 swagger: "2.0"
