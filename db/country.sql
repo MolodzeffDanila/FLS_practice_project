@@ -1,224 +1,228 @@
-CREATE TABLE IF NOT EXISTS country(
-     code_numeric VARCHAR(3) NOT NULL
-    ,code_alpha_2 VARCHAR(2) NOT NULL
-    ,code_alpha_3 VARCHAR(3) NOT NULL
-    ,name VARCHAR(255) NOT NULL
-    ,name_official VARCHAR(255) NOT NULL
-    ,PRIMARY KEY(code_alpha_3)
+DROP TABLE IF EXISTS `country`;
+
+CREATE TABLE `country` (
+    `code_numeric` varchar(3) NOT NULL,
+    `code_alpha_2` varchar(2) NOT NULL,
+    `code_alpha_3` varchar(3) NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `name_official` varchar(255) NOT NULL,
+    PRIMARY KEY (`code_alpha_3`)
 );
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AF','AFGHANISTAN','Afghanistan','AFG','4');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AL','ALBANIA','Albania','ALB','8');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('DZ','ALGERIA','Algeria','DZA','12');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AS','AMERICAN SAMOA','American Samoa','ASM','16');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AD','ANDORRA','Andorra','AND','20');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AO','ANGOLA','Angola','AGO','24');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AG','ANTIGUA AND BARBUDA','Antigua and Barbuda','ATG','28');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AR','ARGENTINA','Argentina','ARG','32');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AM','ARMENIA','Armenia','ARM','51');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AW','ARUBA','Aruba','ABW','533');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AU','AUSTRALIA','Australia','AUS','36');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AT','AUSTRIA','Austria','AUT','40');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AZ','AZERBAIJAN','Azerbaijan','AZE','31');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BS','BAHAMAS','Bahamas','BHS','44');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BH','BAHRAIN','Bahrain','BHR','48');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BD','BANGLADESH','Bangladesh','BGD','50');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BB','BARBADOS','Barbados','BRB','52');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BY','BELARUS','Belarus','BLR','112');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BE','BELGIUM','Belgium','BEL','56');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BZ','BELIZE','Belize','BLZ','84');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BJ','BENIN','Benin','BEN','204');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BM','BERMUDA','Bermuda','BMU','60');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BT','BHUTAN','Bhutan','BTN','64');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BO','BOLIVIA','Bolivia','BOL','68');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BA','BOSNIA AND HERZEGOVINA','Bosnia and Herzegovina','BIH','70');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BW','BOTSWANA','Botswana','BWA','72');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BR','BRAZIL','Brazil','BRA','76');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BN','BRUNEI DARUSSALAM','Brunei Darussalam','BRN','96');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BG','BULGARIA','Bulgaria','BGR','100');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BF','BURKINA FASO','Burkina Faso','BFA','854');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('BI','BURUNDI','Burundi','BDI','108');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KH','CAMBODIA','Cambodia','KHM','116');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CM','CAMEROON','Cameroon','CMR','120');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CA','CANADA','Canada','CAN','124');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CV','CAPE VERDE','Cape Verde','CPV','132');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KY','CAYMAN ISLANDS','Cayman Islands','CYM','136');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CF','CENTRAL AFRICAN REPUBLIC','Central African Republic','CAF','140');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TD','CHAD','Chad','TCD','148');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CL','CHILE','Chile','CHL','152');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CN','CHINA','China','CHN','156');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CO','COLOMBIA','Colombia','COL','170');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KM','COMOROS','Comoros','COM','174');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CG','CONGO','Congo','COG','178');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CD','CONGO, THE DEMOCRATIC REPUBLIC OF THE','Congo, the Democratic Republic of the','COD','180');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CR','COSTA RICA','Costa Rica','CRI','188');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CI','COTE D''IVOIRE','Cote D''Ivoire','CIV','384');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('HR','CROATIA','Croatia','HRV','191');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CU','CUBA','Cuba','CUB','192');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CY','CYPRUS','Cyprus','CYP','196');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CZ','CZECH REPUBLIC','Czech Republic','CZE','203');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('DK','DENMARK','Denmark','DNK','208');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('DJ','DJIBOUTI','Djibouti','DJI','262');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('DM','DOMINICA','Dominica','DMA','212');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('DO','DOMINICAN REPUBLIC','Dominican Republic','DOM','214');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('EC','ECUADOR','Ecuador','ECU','218');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('EG','EGYPT','Egypt','EGY','818');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SV','EL SALVADOR','El Salvador','SLV','222');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GQ','EQUATORIAL GUINEA','Equatorial Guinea','GNQ','226');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ER','ERITREA','Eritrea','ERI','232');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('EE','ESTONIA','Estonia','EST','233');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ET','ETHIOPIA','Ethiopia','ETH','231');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('FO','FAROE ISLANDS','Faroe Islands','FRO','234');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('FJ','FIJI','Fiji','FJI','242');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('FI','FINLAND','Finland','FIN','246');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('FR','FRANCE','France','FRA','250');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PF','FRENCH POLYNESIA','French Polynesia','PYF','258');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GA','GABON','Gabon','GAB','266');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GM','GAMBIA','Gambia','GMB','270');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GE','GEORGIA','Georgia','GEO','268');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('DE','GERMANY','Germany','DEU','276');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GH','GHANA','Ghana','GHA','288');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GI','GIBRALTAR','Gibraltar','GIB','292');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GR','GREECE','Greece','GRC','300');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GL','GREENLAND','Greenland','GRL','304');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GD','GRENADA','Grenada','GRD','308');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GU','GUAM','Guam','GUM','316');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GT','GUATEMALA','Guatemala','GTM','320');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GN','GUINEA','Guinea','GIN','324');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GW','GUINEA-BISSAU','Guinea-Bissau','GNB','624');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GY','GUYANA','Guyana','GUY','328');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('HT','HAITI','Haiti','HTI','332');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('HN','HONDURAS','Honduras','HND','340');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('HK','HONG KONG','Hong Kong','HKG','344');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('HU','HUNGARY','Hungary','HUN','348');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IS','ICELAND','Iceland','ISL','352');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IN','INDIA','India','IND','356');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ID','INDONESIA','Indonesia','IDN','360');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IR','IRAN, ISLAMIC REPUBLIC OF','Iran, Islamic Republic of','IRN','364');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IQ','IRAQ','Iraq','IRQ','368');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IE','IRELAND','Ireland','IRL','372');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IL','ISRAEL','Israel','ISR','376');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IT','ITALY','Italy','ITA','380');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('JM','JAMAICA','Jamaica','JAM','388');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('JP','JAPAN','Japan','JPN','392');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('JO','JORDAN','Jordan','JOR','400');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KZ','KAZAKHSTAN','Kazakhstan','KAZ','398');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KE','KENYA','Kenya','KEN','404');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KI','KIRIBATI','Kiribati','KIR','296');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KP','KOREA, DEMOCRATIC PEOPLE''S REPUBLIC OF','Korea, Democratic People''s Republic of','PRK','408');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KR','KOREA, REPUBLIC OF','Korea, Republic of','KOR','410');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KW','KUWAIT','Kuwait','KWT','414');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KG','KYRGYZSTAN','Kyrgyzstan','KGZ','417');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LA','LAO PEOPLE''S DEMOCRATIC REPUBLIC','Lao People''s Democratic Republic','LAO','418');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LV','LATVIA','Latvia','LVA','428');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LB','LEBANON','Lebanon','LBN','422');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LS','LESOTHO','Lesotho','LSO','426');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LR','LIBERIA','Liberia','LBR','430');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LY','LIBYAN ARAB JAMAHIRIYA','Libyan Arab Jamahiriya','LBY','434');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LI','LIECHTENSTEIN','Liechtenstein','LIE','438');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LT','LITHUANIA','Lithuania','LTU','440');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LU','LUXEMBOURG','Luxembourg','LUX','442');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MO','MACAO','Macao','MAC','446');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MK','MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF','Macedonia, the Former Yugoslav Republic of','MKD','807');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MG','MADAGASCAR','Madagascar','MDG','450');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MW','MALAWI','Malawi','MWI','454');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MY','MALAYSIA','Malaysia','MYS','458');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MV','MALDIVES','Maldives','MDV','462');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ML','MALI','Mali','MLI','466');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MT','MALTA','Malta','MLT','470');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MH','MARSHALL ISLANDS','Marshall Islands','MHL','584');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MR','MAURITANIA','Mauritania','MRT','478');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MU','MAURITIUS','Mauritius','MUS','480');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MX','MEXICO','Mexico','MEX','484');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('FM','MICRONESIA, FEDERATED STATES OF','Micronesia, Federated States of','FSM','583');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MD','MOLDOVA, REPUBLIC OF','Moldova, Republic of','MDA','498');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MC','MONACO','Monaco','MCO','492');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MN','MONGOLIA','Mongolia','MNG','496');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MA','MOROCCO','Morocco','MAR','504');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MZ','MOZAMBIQUE','Mozambique','MOZ','508');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MM','MYANMAR','Myanmar','MMR','104');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NA','NAMIBIA','Namibia','NAM','516');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NR','NAURU','Nauru','NRU','520');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NP','NEPAL','Nepal','NPL','524');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NL','NETHERLANDS','Netherlands','NLD','528');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NC','NEW CALEDONIA','New Caledonia','NCL','540');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NZ','NEW ZEALAND','New Zealand','NZL','554');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NI','NICARAGUA','Nicaragua','NIC','558');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NE','NIGER','Niger','NER','562');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NG','NIGERIA','Nigeria','NGA','566');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MP','NORTHERN MARIANA ISLANDS','Northern Mariana Islands','MNP','580');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('NO','NORWAY','Norway','NOR','578');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('OM','OMAN','Oman','OMN','512');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PK','PAKISTAN','Pakistan','PAK','586');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PW','PALAU','Palau','PLW','585');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PA','PANAMA','Panama','PAN','591');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PG','PAPUA NEW GUINEA','Papua New Guinea','PNG','598');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PY','PARAGUAY','Paraguay','PRY','600');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PE','PERU','Peru','PER','604');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PH','PHILIPPINES','Philippines','PHL','608');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PL','POLAND','Poland','POL','616');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PT','PORTUGAL','Portugal','PRT','620');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PR','PUERTO RICO','Puerto Rico','PRI','630');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('QA','QATAR','Qatar','QAT','634');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('RU','RUSSIAN FEDERATION','Russian Federation','RUS','643');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('RW','RWANDA','Rwanda','RWA','646');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('KN','SAINT KITTS AND NEVIS','Saint Kitts and Nevis','KNA','659');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LC','SAINT LUCIA','Saint Lucia','LCA','662');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('VC','SAINT VINCENT AND THE GRENADINES','Saint Vincent and the Grenadines','VCT','670');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('WS','SAMOA','Samoa','WSM','882');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SM','SAN MARINO','San Marino','SMR','674');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ST','SAO TOME AND PRINCIPE','Sao Tome and Principe','STP','678');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SA','SAUDI ARABIA','Saudi Arabia','SAU','682');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SN','SENEGAL','Senegal','SEN','686');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SC','SEYCHELLES','Seychelles','SYC','690');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SL','SIERRA LEONE','Sierra Leone','SLE','694');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SG','SINGAPORE','Singapore','SGP','702');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SK','SLOVAKIA','Slovakia','SVK','703');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SI','SLOVENIA','Slovenia','SVN','705');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SB','SOLOMON ISLANDS','Solomon Islands','SLB','90');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SO','SOMALIA','Somalia','SOM','706');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ZA','SOUTH AFRICA','South Africa','ZAF','710');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ES','SPAIN','Spain','ESP','724');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('LK','SRI LANKA','Sri Lanka','LKA','144');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SD','SUDAN','Sudan','SDN','736');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SR','SURINAME','Suriname','SUR','740');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SZ','SWAZILAND','Swaziland','SWZ','748');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SE','SWEDEN','Sweden','SWE','752');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CH','SWITZERLAND','Switzerland','CHE','756');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SY','SYRIAN ARAB REPUBLIC','Syrian Arab Republic','SYR','760');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TJ','TAJIKISTAN','Tajikistan','TJK','762');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TZ','TANZANIA, UNITED REPUBLIC OF','Tanzania, United Republic of','TZA','834');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TH','THAILAND','Thailand','THA','764');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TG','TOGO','Togo','TGO','768');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TO','TONGA','Tonga','TON','776');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TT','TRINIDAD AND TOBAGO','Trinidad and Tobago','TTO','780');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TN','TUNISIA','Tunisia','TUN','788');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TR','TURKEY','Turkey','TUR','792');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TM','TURKMENISTAN','Turkmenistan','TKM','795');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TC','TURKS AND CAICOS ISLANDS','Turks and Caicos Islands','TCA','796');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TV','TUVALU','Tuvalu','TUV','798');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('UG','UGANDA','Uganda','UGA','800');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('UA','UKRAINE','Ukraine','UKR','804');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('AE','UNITED ARAB EMIRATES','United Arab Emirates','ARE','784');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('GB','UNITED KINGDOM','United Kingdom','GBR','826');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('US','UNITED STATES','United States','USA','840');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('UY','URUGUAY','Uruguay','URY','858');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('UZ','UZBEKISTAN','Uzbekistan','UZB','860');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('VU','VANUATU','Vanuatu','VUT','548');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('VE','VENEZUELA','Venezuela','VEN','862');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('VN','VIET NAM','Viet Nam','VNM','704');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('VG','VIRGIN ISLANDS, BRITISH','Virgin Islands, British','VGB','92');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('VI','VIRGIN ISLANDS, U.S.','Virgin Islands, U.s.','VIR','850');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('YE','YEMEN','Yemen','YEM','887');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ZM','ZAMBIA','Zambia','ZMB','894');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ZW','ZIMBABWE','Zimbabwe','ZWE','716');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SS', 'SOUTH SUDAN', 'South Sudan', 'SSD', '211');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('XK', 'KOSOVO', 'Kosovo', 'XKX', '383');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('RS', 'SERBIA', 'Serbia', 'SRB', '381');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('CW', 'CURACAO', 'Curacao', 'CUW', '599');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('IM', 'ISLE OF MAN', 'Isle Of Man', 'IMN', '44');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('ME', 'MONTENEGRO', 'Montenegro','MNE', '382');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('RO', 'ROMANIA', 'Romania', 'ROU', '40');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('SX', 'SINT MAARTEN (DUTCH PART)', 'Sint Maarten (Dutch part)', 'SXM', '1');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('MF', 'SAINT MARTIN', 'Saint Martin', 'MAF', '590');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('TL', 'TIMOR-LESTE', 'Timor-Leste', 'TLS', '670');
-INSERT INTO country(code_alpha_2,name_official,name,code_alpha_3,code_numeric) VALUES ('PS', 'WEST BANK AND GAZA', 'West Bank and Gaza', 'PSE', '970');
+
+INSERT INTO `country` VALUES
+                           ('533','AW','ABW','Aruba','ARUBA'),
+                           ('004','AF','AFG','Afghanistan','AFGHANISTAN'),
+                           ('024','AO','AGO','Angola','ANGOLA'),
+                           ('008','AL','ALB','Albania','ALBANIA'),
+                           ('020','AD','AND','Andorra','ANDORRA'),
+                           ('784','AE','ARE','United Arab Emirates','UNITED ARAB EMIRATES'),
+                           ('032','AR','ARG','Argentina','ARGENTINA'),
+                           ('051','AM','ARM','Armenia','ARMENIA'),
+                           ('016','AS','ASM','American Samoa','AMERICAN SAMOA'),
+                           ('028','AG','ATG','Antigua and Barbuda','ANTIGUA AND BARBUDA'),
+                           ('036','AU','AUS','Australia','AUSTRALIA'),
+                           ('040','AT','AUT','Austria','AUSTRIA'),
+                           ('031','AZ','AZE','Azerbaijan','AZERBAIJAN'),
+                           ('108','BI','BDI','Burundi','BURUNDI'),
+                           ('056','BE','BEL','Belgium','BELGIUM'),
+                           ('204','BJ','BEN','Benin','BENIN'),
+                           ('854','BF','BFA','Burkina Faso','BURKINA FASO'),
+                           ('050','BD','BGD','Bangladesh','BANGLADESH'),
+                           ('100','BG','BGR','Bulgaria','BULGARIA'),
+                           ('048','BH','BHR','Bahrain','BAHRAIN'),
+                           ('044','BS','BHS','Bahamas','BAHAMAS'),
+                           ('070','BA','BIH','Bosnia and Herzegovina','BOSNIA AND HERZEGOVINA'),
+                           ('112','BY','BLR','Belarus','BELARUS'),
+                           ('084','BZ','BLZ','Belize','BELIZE'),
+                           ('060','BM','BMU','Bermuda','BERMUDA'),
+                           ('068','BO','BOL','Bolivia','BOLIVIA'),
+                           ('076','BR','BRA','Brazil','BRAZIL'),
+                           ('052','BB','BRB','Barbados','BARBADOS'),
+                           ('096','BN','BRN','Brunei Darussalam','BRUNEI DARUSSALAM'),
+                           ('064','BT','BTN','Bhutan','BHUTAN'),
+                           ('072','BW','BWA','Botswana','BOTSWANA'),
+                           ('140','CF','CAF','Central African Republic','CENTRAL AFRICAN REPUBLIC'),
+                           ('124','CA','CAN','Canada','CANADA'),
+                           ('756','CH','CHE','Switzerland','SWITZERLAND'),
+                           ('152','CL','CHL','Chile','CHILE'),
+                           ('156','CN','CHN','China','CHINA'),
+                           ('384','CI','CIV','Cote D\'Ivoire','COTE D\'IVOIRE'),
+                           ('120','CM','CMR','Cameroon','CAMEROON'),
+                           ('180','CD','COD','Congo, the Democratic Republic of the','CONGO, THE DEMOCRATIC REPUBLIC OF THE'),
+                           ('178','CG','COG','Congo','CONGO'),
+                           ('170','CO','COL','Colombia','COLOMBIA'),
+                           ('174','KM','COM','Comoros','COMOROS'),
+                           ('132','CV','CPV','Cape Verde','CAPE VERDE'),
+                           ('188','CR','CRI','Costa Rica','COSTA RICA'),
+                           ('192','CU','CUB','Cuba','CUBA'),
+                           ('599','CW','CUW','Curacao','CURACAO'),
+                           ('136','KY','CYM','Cayman Islands','CAYMAN ISLANDS'),
+                           ('196','CY','CYP','Cyprus','CYPRUS'),
+                           ('203','CZ','CZE','Czech Republic','CZECH REPUBLIC'),
+                           ('276','DE','DEU','Germany','GERMANY'),
+                           ('262','DJ','DJI','Djibouti','DJIBOUTI'),
+                           ('212','DM','DMA','Dominica','DOMINICA'),
+                           ('208','DK','DNK','Denmark','DENMARK'),
+                           ('214','DO','DOM','Dominican Republic','DOMINICAN REPUBLIC'),
+                           ('012','DZ','DZA','Algeria','ALGERIA'),
+                           ('218','EC','ECU','Ecuador','ECUADOR'),
+                           ('818','EG','EGY','Egypt','EGYPT'),
+                           ('232','ER','ERI','Eritrea','ERITREA'),
+                           ('724','ES','ESP','Spain','SPAIN'),
+                           ('233','EE','EST','Estonia','ESTONIA'),
+                           ('231','ET','ETH','Ethiopia','ETHIOPIA'),
+                           ('246','FI','FIN','Finland','FINLAND'),
+                           ('242','FJ','FJI','Fiji','FIJI'),
+                           ('250','FR','FRA','France','FRANCE'),
+                           ('234','FO','FRO','Faroe Islands','FAROE ISLANDS'),
+                           ('583','FM','FSM','Micronesia, Federated States of','MICRONESIA, FEDERATED STATES OF'),
+                           ('266','GA','GAB','Gabon','GABON'),
+                           ('826','GB','GBR','United Kingdom','UNITED KINGDOM'),
+                           ('268','GE','GEO','Georgia','GEORGIA'),
+                           ('288','GH','GHA','Ghana','GHANA'),
+                           ('292','GI','GIB','Gibraltar','GIBRALTAR'),
+                           ('324','GN','GIN','Guinea','GUINEA'),
+                           ('270','GM','GMB','Gambia','GAMBIA'),
+                           ('624','GW','GNB','Guinea-Bissau','GUINEA-BISSAU'),
+                           ('226','GQ','GNQ','Equatorial Guinea','EQUATORIAL GUINEA'),
+                           ('300','GR','GRC','Greece','GREECE'),
+                           ('308','GD','GRD','Grenada','GRENADA'),
+                           ('304','GL','GRL','Greenland','GREENLAND'),
+                           ('320','GT','GTM','Guatemala','GUATEMALA'),
+                           ('316','GU','GUM','Guam','GUAM'),
+                           ('328','GY','GUY','Guyana','GUYANA'),
+                           ('344','HK','HKG','Hong Kong','HONG KONG'),
+                           ('340','HN','HND','Honduras','HONDURAS'),
+                           ('191','HR','HRV','Croatia','CROATIA'),
+                           ('332','HT','HTI','Haiti','HAITI'),
+                           ('348','HU','HUN','Hungary','HUNGARY'),
+                           ('360','ID','IDN','Indonesia','INDONESIA'),
+                           ('044','IM','IMN','Isle Of Man','ISLE OF MAN'),
+                           ('356','IN','IND','India','INDIA'),
+                           ('372','IE','IRL','Ireland','IRELAND'),
+                           ('364','IR','IRN','Iran, Islamic Republic of','IRAN, ISLAMIC REPUBLIC OF'),
+                           ('368','IQ','IRQ','Iraq','IRAQ'),
+                           ('352','IS','ISL','Iceland','ICELAND'),
+                           ('376','IL','ISR','Israel','ISRAEL'),
+                           ('380','IT','ITA','Italy','ITALY'),
+                           ('388','JM','JAM','Jamaica','JAMAICA'),
+                           ('400','JO','JOR','Jordan','JORDAN'),
+                           ('392','JP','JPN','Japan','JAPAN'),
+                           ('398','KZ','KAZ','Kazakhstan','KAZAKHSTAN'),
+                           ('404','KE','KEN','Kenya','KENYA'),
+                           ('417','KG','KGZ','Kyrgyzstan','KYRGYZSTAN'),
+                           ('116','KH','KHM','Cambodia','CAMBODIA'),
+                           ('296','KI','KIR','Kiribati','KIRIBATI'),
+                           ('659','KN','KNA','Saint Kitts and Nevis','SAINT KITTS AND NEVIS'),
+                           ('410','KR','KOR','Korea, Republic of','KOREA, REPUBLIC OF'),
+                           ('414','KW','KWT','Kuwait','KUWAIT'),
+                           ('418','LA','LAO','Lao People\'s Democratic Republic','LAO PEOPLE\'S DEMOCRATIC REPUBLIC'),
+                           ('422','LB','LBN','Lebanon','LEBANON'),
+                           ('430','LR','LBR','Liberia','LIBERIA'),
+                           ('434','LY','LBY','Libyan Arab Jamahiriya','LIBYAN ARAB JAMAHIRIYA'),
+                           ('662','LC','LCA','Saint Lucia','SAINT LUCIA'),
+                           ('438','LI','LIE','Liechtenstein','LIECHTENSTEIN'),
+                           ('144','LK','LKA','Sri Lanka','SRI LANKA'),
+                           ('426','LS','LSO','Lesotho','LESOTHO'),
+                           ('440','LT','LTU','Lithuania','LITHUANIA'),
+                           ('442','LU','LUX','Luxembourg','LUXEMBOURG'),
+                           ('428','LV','LVA','Latvia','LATVIA'),
+                           ('446','MO','MAC','Macao','MACAO'),
+                           ('590','MF','MAF','Saint Martin','SAINT MARTIN'),
+                           ('504','MA','MAR','Morocco','MOROCCO'),
+                           ('492','MC','MCO','Monaco','MONACO'),
+                           ('498','MD','MDA','Moldova, Republic of','MOLDOVA, REPUBLIC OF'),
+                           ('450','MG','MDG','Madagascar','MADAGASCAR'),
+                           ('462','MV','MDV','Maldives','MALDIVES'),
+                           ('484','MX','MEX','Mexico','MEXICO'),
+                           ('584','MH','MHL','Marshall Islands','MARSHALL ISLANDS'),
+                           ('807','MK','MKD','Macedonia, the Former Yugoslav Republic of','MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF'),
+                           ('466','ML','MLI','Mali','MALI'),
+                           ('470','MT','MLT','Malta','MALTA'),
+                           ('104','MM','MMR','Myanmar','MYANMAR'),
+                           ('382','ME','MNE','Montenegro','MONTENEGRO'),
+                           ('496','MN','MNG','Mongolia','MONGOLIA'),
+                           ('580','MP','MNP','Northern Mariana Islands','NORTHERN MARIANA ISLANDS'),
+                           ('508','MZ','MOZ','Mozambique','MOZAMBIQUE'),
+                           ('478','MR','MRT','Mauritania','MAURITANIA'),
+                           ('480','MU','MUS','Mauritius','MAURITIUS'),
+                           ('454','MW','MWI','Malawi','MALAWI'),
+                           ('458','MY','MYS','Malaysia','MALAYSIA'),
+                           ('516','NA','NAM','Namibia','NAMIBIA'),
+                           ('540','NC','NCL','New Caledonia','NEW CALEDONIA'),
+                           ('562','NE','NER','Niger','NIGER'),
+                           ('566','NG','NGA','Nigeria','NIGERIA'),
+                           ('558','NI','NIC','Nicaragua','NICARAGUA'),
+                           ('528','NL','NLD','Netherlands','NETHERLANDS'),
+                           ('578','NO','NOR','Norway','NORWAY'),
+                           ('524','NP','NPL','Nepal','NEPAL'),
+                           ('520','NR','NRU','Nauru','NAURU'),
+                           ('554','NZ','NZL','New Zealand','NEW ZEALAND'),
+                           ('512','OM','OMN','Oman','OMAN'),
+                           ('586','PK','PAK','Pakistan','PAKISTAN'),
+                           ('591','PA','PAN','Panama','PANAMA'),
+                           ('604','PE','PER','Peru','PERU'),
+                           ('608','PH','PHL','Philippines','PHILIPPINES'),
+                           ('585','PW','PLW','Palau','PALAU'),
+                           ('598','PG','PNG','Papua New Guinea','PAPUA NEW GUINEA'),
+                           ('616','PL','POL','Poland','POLAND'),
+                           ('630','PR','PRI','Puerto Rico','PUERTO RICO'),
+                           ('408','KP','PRK','Korea, Democratic People\'s Republic of','KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF'),
+                           ('620','PT','PRT','Portugal','PORTUGAL'),
+                           ('600','PY','PRY','Paraguay','PARAGUAY'),
+                           ('970','PS','PSE','West Bank and Gaza','WEST BANK AND GAZA'),
+                           ('258','PF','PYF','French Polynesia','FRENCH POLYNESIA'),
+                           ('634','QA','QAT','Qatar','QATAR'),
+                           ('040','RO','ROU','Romania','ROMANIA'),
+                           ('643','RU','RUS','Russian Federation','RUSSIAN FEDERATION'),
+                           ('646','RW','RWA','Rwanda','RWANDA'),
+                           ('682','SA','SAU','Saudi Arabia','SAUDI ARABIA'),
+                           ('736','SD','SDN','Sudan','SUDAN'),
+                           ('686','SN','SEN','Senegal','SENEGAL'),
+                           ('702','SG','SGP','Singapore','SINGAPORE'),
+                           ('090','SB','SLB','Solomon Islands','SOLOMON ISLANDS'),
+                           ('694','SL','SLE','Sierra Leone','SIERRA LEONE'),
+                           ('222','SV','SLV','El Salvador','EL SALVADOR'),
+                           ('674','SM','SMR','San Marino','SAN MARINO'),
+                           ('706','SO','SOM','Somalia','SOMALIA'),
+                           ('381','RS','SRB','Serbia','SERBIA'),
+                           ('211','SS','SSD','South Sudan','SOUTH SUDAN'),
+                           ('678','ST','STP','Sao Tome and Principe','SAO TOME AND PRINCIPE'),
+                           ('740','SR','SUR','Suriname','SURINAME'),
+                           ('703','SK','SVK','Slovakia','SLOVAKIA'),
+                           ('705','SI','SVN','Slovenia','SLOVENIA'),
+                           ('752','SE','SWE','Sweden','SWEDEN'),
+                           ('748','SZ','SWZ','Swaziland','SWAZILAND'),
+                           ('001','SX','SXM','Sint Maarten (Dutch part)','SINT MAARTEN (DUTCH PART)'),
+                           ('690','SC','SYC','Seychelles','SEYCHELLES'),
+                           ('760','SY','SYR','Syrian Arab Republic','SYRIAN ARAB REPUBLIC'),
+                           ('796','TC','TCA','Turks and Caicos Islands','TURKS AND CAICOS ISLANDS'),
+                           ('148','TD','TCD','Chad','CHAD'),
+                           ('768','TG','TGO','Togo','TOGO'),
+                           ('764','TH','THA','Thailand','THAILAND'),
+                           ('762','TJ','TJK','Tajikistan','TAJIKISTAN'),
+                           ('795','TM','TKM','Turkmenistan','TURKMENISTAN'),
+                           ('670','TL','TLS','Timor-Leste','TIMOR-LESTE'),
+                           ('776','TO','TON','Tonga','TONGA'),
+                           ('780','TT','TTO','Trinidad and Tobago','TRINIDAD AND TOBAGO'),
+                           ('788','TN','TUN','Tunisia','TUNISIA'),
+                           ('792','TR','TUR','Turkey','TURKEY'),
+                           ('798','TV','TUV','Tuvalu','TUVALU'),
+                           ('834','TZ','TZA','Tanzania, United Republic of','TANZANIA, UNITED REPUBLIC OF'),
+                           ('800','UG','UGA','Uganda','UGANDA'),
+                           ('804','UA','UKR','Ukraine','UKRAINE'),
+                           ('858','UY','URY','Uruguay','URUGUAY'),
+                           ('840','US','USA','United States','UNITED STATES'),
+                           ('860','UZ','UZB','Uzbekistan','UZBEKISTAN'),
+                           ('670','VC','VCT','Saint Vincent and the Grenadines','SAINT VINCENT AND THE GRENADINES'),
+                           ('862','VE','VEN','Venezuela','VENEZUELA'),
+                           ('092','VG','VGB','Virgin Islands, British','VIRGIN ISLANDS, BRITISH'),
+                           ('850','VI','VIR','Virgin Islands, U.s.','VIRGIN ISLANDS, U.S.'),
+                           ('704','VN','VNM','Viet Nam','VIET NAM'),
+                           ('548','VU','VUT','Vanuatu','VANUATU'),
+                           ('882','WS','WSM','Samoa','SAMOA'),
+                           ('383','XK','XKX','Kosovo','KOSOVO'),
+                           ('887','YE','YEM','Yemen','YEMEN'),
+                           ('710','ZA','ZAF','South Africa','SOUTH AFRICA'),
+                           ('894','ZM','ZMB','Zambia','ZAMBIA'),
+                           ('716','ZW','ZWE','Zimbabwe','ZIMBABWE');
