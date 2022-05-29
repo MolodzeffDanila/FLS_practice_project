@@ -12,6 +12,7 @@ import Histogram from "./Histogram";
 import Circle from "./Circle";
 import Box from "@mui/material/Box";
 import CircularProgress from '@mui/material/CircularProgress';
+import {Typography} from "@mui/material";
 
 
 function DisplayPanel(props) {
@@ -41,13 +42,30 @@ function DisplayPanel(props) {
                 case ('histogram'):
                     return <Histogram data={filteredData} />
                 default:
-                    return <Plot data={filteredData} />
+                    return <TableData data={filteredData} />
             }
         }
     }
 
     function requestForData(){
         props.showModal(false)
+
+        let request = "http://localhost:8080/api/v1/";
+        request += props.selected_series;
+        for(let country of props.selected_countries){
+            request += country;
+        }
+        console.log(request);
+        fetch(request)
+            .then(response => response.json())
+            .then(data => {
+                props.setData(data);
+                props.setLoading(false); // Отключение лоадера
+            })
+
+            .catch(err => console.error(err));
+
+
     }
 
     function showButtonForRequest(){
@@ -78,7 +96,6 @@ function DisplayPanel(props) {
                         <FormControlLabel value="histogram" control={<Radio />} label="Histogram" />
                         {showButtonForRequest()}
                     </RadioGroup>
-
                 </FormControl>
             </>
         );

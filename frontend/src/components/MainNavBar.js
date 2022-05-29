@@ -6,11 +6,8 @@ function MainNavBar(props) {
     function createAppBar() {
         return (
             <Toolbar variant="dense">
-                <IconButton edge="start"  color="inherit" aria-label="menu">
-                    <MenuIcon />
-                </IconButton>
                 <Typography variant="h6" >
-                    Menu
+                    World bank by Zaychiki
                 </Typography>
             </Toolbar>
         );
