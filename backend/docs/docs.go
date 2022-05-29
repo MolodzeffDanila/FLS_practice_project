@@ -20,6 +20,28 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/country": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves data from table ` + "`" + `Country` + "`" + `",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.CountryStatistic"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Fail"
+                    }
+                }
+            }
+        },
         "/gdp-constant-2015-us": {
             "get": {
                 "produces": [
@@ -55,7 +77,37 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Retrieves data from table ` + "`" + `GDP (constant 2015 US$)` + "`" + `",
+                "summary": "Retrieves data from table ` + "`" + `GDP (constant LCU)` + "`" + `",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "search by countries",
+                        "name": "country-code-alpha-3",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.CountryStatistic"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Fail"
+                    }
+                }
+            }
+        },
+        "/gdp-current-lcu": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves data from table ` + "`" + `GDP (current LCU)` + "`" + `",
                 "parameters": [
                     {
                         "type": "string",
@@ -119,9 +171,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "country_name": {
-                    "type": "string"
-                },
-                "id": {
                     "type": "string"
                 },
                 "yr_1960": {
