@@ -19,7 +19,7 @@ func GetGDPCurrentUS(c *gin.Context) {
 	countriesString := c.Query("country-code-alpha-3")
 	if countriesString != "" {
 		countries := strings.Split(countriesString, ",")
-		countryStatistics, err := cs.GetByCountry("gdp-current-us", countries)
+		countryStatistics, err := cs.GetByCountry("gdp_current_us", countries)
 		if err != nil {
 			c.Error(err)
 			return
@@ -27,7 +27,7 @@ func GetGDPCurrentUS(c *gin.Context) {
 
 		c.IndentedJSON(http.StatusOK, countryStatistics)
 	} else {
-		countryStatistics, err := cs.GetAll("gdp-current-us")
+		countryStatistics, err := cs.GetAll("gdp_current_us")
 		if err != nil {
 			c.Error(err)
 			return
