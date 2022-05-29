@@ -47,11 +47,12 @@ function ControlPanel(props) {
         }
     }
 
-    const [searchValue,setSearchValue] = useState('');
+    const [searchValue,setSearchValue] = useState("");
 
-    const filterCountries = props.countries.filter(country =>{
-        console.log(country);
-        //return country.name.toLowerCase().includes(searchValue.toLowerCase())
+    const filteredCountries = props.countries.filter(country => {
+        if(props.countries.length !== 0){
+            return country.name.toLowerCase().includes(searchValue.toLowerCase());
+        }
     })
 
     return (
@@ -80,7 +81,7 @@ function ControlPanel(props) {
                                 <SearchIcon />
                             </IconButton>
                         </Paper>
-                        {props.countries.map((item) => (
+                        {filteredCountries.map((item) => (
                             <FormControlLabel key={item.code_alpha_3}
                                               control={<Checkbox id={item.code_alpha_3}
                                               onClick={handleCheckboxClickCountries} />} label={item.name}

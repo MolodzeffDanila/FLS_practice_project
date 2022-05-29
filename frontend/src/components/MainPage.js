@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 function MainPage(props) {
     const classes = useStyles();
     const [selected_countries, setSelected] = useState([]);
-    const [countries, setCountries] = useState(['USA', 'China', 'Russia', 'Australian Samoa', 'Canada', "Africa Eastern and Southern"])
+    const [countries, setCountries] = useState([])
     const [years, setYears] = useState([]);
     const [selected_years, setSelectedYears] = useState([]);
     const [data, setData] = useState([]);
@@ -40,22 +40,11 @@ function MainPage(props) {
     const [isLoading,setLoading] = useState(true);
 
     useEffect(() => {
-        /*fetch('http://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json')//гетзапрос по данным url
-            .then(response => response.json())
-            .then(data => {
-                const result = data[1].sort((a, b) => Number(a.date) - Number(b.date));
-                setData(result);
-                setYears(countYears(1960,2021));
-                setLoading(false); // Отключение лоадера
-            })
-
-            .catch(err => console.error(err));*/
-
         fetch('http://localhost:8080/api/v1/country')
             .then(response => response.json())
             .then(data => {
                 setCountries(data);
-                console.log(data);
+                setYears(countYears(1960,2021));
                 setLoading(false); // Отключение лоадера
             })
 
