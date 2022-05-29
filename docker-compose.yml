@@ -26,6 +26,13 @@ services:
     env_file:
       - backend/.env
 
+  nginx:
+    container_name: "fls_nginx"
+    build: ./nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+
   frontend:
     container_name: "fls_frontend"
     build: ./frontend
