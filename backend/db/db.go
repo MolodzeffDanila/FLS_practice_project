@@ -1,30 +1,28 @@
 package db
 
 import (
+	"backend/config"
 	"fmt"
 	"github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"log"
-	"os"
 )
 
 var db *sqlx.DB
 
 func Init() {
-	// Choosing a bd host based on env var
-	var host string = os.Getenv("SQL_HOST")
-	if len(host) == 0 {
-		host = "localhost"
-	}
-	host = host + ":3306"
+	// Choosing the DB host based on environment variables
+	addr := fmt.Sprintf("%s:%s",
+		config.Getenv("SQL_HOST", "localhost"),
+		config.Getenv("SQL_PORT", "3306"))
 
 	// Capture connection properties
 	cfg := mysql.Config{
-		User:   "root",
-		Passwd: "abracadabra",
+		User:   config.Getenv("SQL_USER", "root"),
+		Passwd: config.Getenv("SQL_PASSWORD", "abracadabra"),
 		Net:    "tcp",
-		Addr:   host,
-		DBName: "gdp",
+		Addr:   addr,
+		DBName: config.Getenv("SQL_DATABASE", "gdp"),
 	}
 	// Get a database handle.
 	var err error
