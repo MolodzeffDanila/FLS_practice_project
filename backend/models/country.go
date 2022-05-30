@@ -15,7 +15,7 @@ type Country struct {
 
 func (c *Country) GetAll() ([]Country, error) {
 	database := db.GetDB()
-	rows, err := database.Queryx("SELECT * FROM country;")
+	rows, err := database.Queryx("SELECT * FROM country ORDER BY name;")
 	if err != nil {
 		return nil, fmt.Errorf("GetAll: %v", err)
 	}
