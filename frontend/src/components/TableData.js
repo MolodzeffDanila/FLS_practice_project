@@ -8,10 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import {TablePagination} from "@material-ui/core";
 
 function TableData(props) {
-    const { data } = props
-    const [selected, setSelected] = useState([]);
-    const [selectedData, setSelectedData] = useState([]);
-
     const [rowsPerPage, setRowsPerPage ] = useState(7);
     const [page, setPage] = useState(0)
     const columns = [
@@ -34,11 +30,7 @@ function TableData(props) {
             },
         ]
 
-    useEffect(() => {
-        const newSelectedData = []
-        selected.forEach((year) => newSelectedData.push(data.find((item) => item.date === year)))
-        setSelectedData(newSelectedData)
-    }, [selected, data])
+    const [tableRows, setRows] = useState([]);
 
     function handleChangePage(event, newPage){
         setPage(newPage)
@@ -48,6 +40,21 @@ function TableData(props) {
         setPage(0);
         setRowsPerPage(+event.target.value)
     }
+
+    useEffect(()=>{
+        let tmp_rows=[];
+        for(let country of props.data){
+            for(let year of country.years){
+                tmp_rows.push({
+                    country_name:country.country_name,
+                    year: year.year,
+                    value: year.value
+                })
+            }
+        }
+        setRows(tmp_rows);
+    }, [props.data])
+
 
     return (
         <>
@@ -69,20 +76,22 @@ function TableData(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => ( //создание строк в таблице
-                            <TableRow key={item.date}>
-                                <TableCell>{item.country.value} </TableCell>
-                                <TableCell>{item.date} </TableCell>
-                                <TableCell>{item.value} </TableCell>
-                            </TableRow>
+                        {tableRows?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
+                            <>
+                                <TableRow key={item.country_name}>
+                                    <TableCell>{item.country_name} </TableCell>
+                                    <TableCell>{item.year} </TableCell>
+                                    <TableCell>{item.value} </TableCell>
+                                </TableRow>
+                            </>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
             <TablePagination
-                rowsPerPageOptions={[7, 10, data.length]}
+                rowsPerPageOptions={[7, 10, tableRows.length]}
                 component="div"
-                count={data.length}
+                count={tableRows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

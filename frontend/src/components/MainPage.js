@@ -6,13 +6,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import ControlPanel from "./ControlPanel";
 import DisplayPanel from "./DisplayPanel";
 
-/*function countYears(start, end) {
+function countYears(start, end) {
     let foo = [];
     for (let i = start; i <= end; i++) {
         foo.push(i);
     }
     return foo;
-}*/
+}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 function MainPage(props) {
     const classes = useStyles();
     const [selected_countries, setSelected] = useState([]);
-    const [countries, setCountries] = useState(['USA', 'China', 'Russia', 'Australian Samoa', 'Canada', "Africa Eastern and Southern"])
+    const [countries, setCountries] = useState([])
     const [years, setYears] = useState([]);
     const [selected_years, setSelectedYears] = useState([]);
     const [data, setData] = useState([]);
@@ -35,24 +35,20 @@ function MainPage(props) {
     const [selected_series, setSeries] = useState([]);
     const series = ["GDP(constant 2015 US$)",
         "GDP(constant LCU)",
-        "GDP(current LCU)",
-        "GDP(current US$)"
+        "GDP(current LCU)"
     ]
     const [isLoading,setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json')//гетзапрос по данным url
+        fetch('http://localhost:8080/api/v1/country')
             .then(response => response.json())
             .then(data => {
-                const result = data[1].sort((a, b) => Number(a.date) - Number(b.date));
-                setData(result);
-                setYears(result.map((item)=>item.date));
+                setCountries(data);
+                setYears(countYears(1960,2021));
                 setLoading(false); // Отключение лоадера
             })
-
             .catch(err => console.error(err));
-
-    }, [])
+    }, [countries])
 
     return (
         <>
@@ -87,6 +83,7 @@ function MainPage(props) {
                                           showModal={showModal}
                                           selected_series={selected_series}
                                           isLoading={isLoading}
+                                          setLoading={setLoading}
                             />
                         </Paper>
                     </Grid>

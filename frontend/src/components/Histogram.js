@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { Typography } from "@mui/material";
 import {
     Chart as ChartJS,
@@ -38,8 +38,44 @@ export const options = {
 };
 
 function Histogram(props) {
-    const { data } = props
+    const { data } = props;
     const chartBarRef = useRef(null);
+    const [chartData, setChartData] = useState({labels:[],datasets:[]});
+    const colors = [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 245, 1)',
+        'rgba(255, 159, 64, 1)',
+    ];
+
+    useEffect(()=>{
+        let labels_ = data[0]?.years?.map((item) => item.year);
+        let datasets_ = [];
+        let currentColor = 0;
+        for(let country of data){
+            let data = [];
+            for(let year of country.years){
+                if (year.value === null){
+                    data.push(0);
+                }else{
+                    data.push(year.value);
+                }
+            }
+            datasets_.push({
+                data: data,
+                label: country.country_name,
+                backgroundColor: colors[currentColor],
+            })
+            currentColor = (currentColor+1)%6;
+        }
+        setChartData({
+            labels:labels_,
+            datasets: datasets_
+        })
+    }, [data])
+
     const labels = data?.map((item) => item.value)
     const dataChart = {
         labels,
@@ -76,10 +112,10 @@ function Histogram(props) {
     }
     return (
         <>
-            <Typography variant='h2'>Histogram</Typography>
+            <Typography variant='h3'>Histogram</Typography>
             <div className='chart-container'>
                 <div className='chart'>
-                    <Bar options={options} data={dataChart} ref={chartBarRef} />
+                    <Bar options={options} data={chartData} ref={chartBarRef} />
                     <Button variant="contained" color='primary' onClick={handleBarExport}>Сохранить в формате png</Button>
                 </div>
             </div>

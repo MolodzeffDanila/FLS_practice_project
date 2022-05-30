@@ -1,5 +1,12 @@
-import { Typography } from "@mui/material";
-import { Accordion, AccordionDetails, AccordionSummary,FormControlLabel, FormGroup } from "@material-ui/core";
+import { Typography, Radio, RadioGroup } from "@mui/material";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    FormControl,
+    FormControlLabel,
+    FormGroup
+} from "@material-ui/core";
 import Checkbox from '@mui/material/Checkbox';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import InputBase from '@mui/material/InputBase';
@@ -22,15 +29,11 @@ function ControlPanel(props) {
         }
     }
 
-    function handleCheckboxClickSeries(event){
+    function handleSetCurrentParameter(event){
         if (props.is_showed_modal === false){
             props.showModal(true)
         }
-        if (event.target.checked) {
-            props.setSeries(props.selected_series.concat([event.target.id]));
-        } else {
-            props.setSeries((prev) => prev.filter((item) => item !== event.target.id));
-        }
+        props.setSeries(event.target.value);
     }
 
     function handleCheckboxClickYears(event) {
@@ -44,9 +47,17 @@ function ControlPanel(props) {
         }
     }
 
+    const [searchValue,setSearchValue] = useState("");
+
+    const filteredCountries = props.countries.filter(country => {
+        if(props.countries.length !== 0){
+            return country.name.toLowerCase().includes(searchValue.toLowerCase());
+        }
+    })
+
     return (
         <>
-            <Typography variant='h3'>Parameters</Typography>
+            <Typography variant='h3'>Parameters:</Typography>
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -62,13 +73,19 @@ function ControlPanel(props) {
                                 sx={{ ml: 1, flex: 1 }}
                                 placeholder="Search Country"
                                 inputProps={{ 'aria-label': 'Enter country name' }}
+                                onChange={(event) => {
+                                    setSearchValue(event.target.value);
+                                }}
                             />
                             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
                                 <SearchIcon />
                             </IconButton>
                         </Paper>
-                        {props.countries.map((item) => (
-                            <FormControlLabel key={item} control={<Checkbox id={item} onClick={handleCheckboxClickCountries} />} label={item} />
+                        {filteredCountries.map((item) => (
+                            <FormControlLabel key={item.code_alpha_3}
+                                              control={<Checkbox id={item.code_alpha_3}
+                                              onClick={handleCheckboxClickCountries} />} label={item.name}
+                            />
                         ))}
                     </FormGroup>
                 </AccordionDetails>
@@ -82,21 +99,17 @@ function ControlPanel(props) {
                     <Typography variant='h5'>Series</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <FormGroup>
-                        <Paper sx={{width:"100%"}}>
-                            <InputBase
-                                sx={{ ml: 1, flex: 1 }}
-                                placeholder="Search Series"
-                                inputProps={{ 'aria-label': 'Enter series name' }}
-                            />
-                            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-                                <SearchIcon />
-                            </IconButton>
-                        </Paper>
-                        {props.series.map((item) => (
-                            <FormControlLabel key={item} control={<Checkbox id={item} onClick={handleCheckboxClickSeries} />} label={item} />
-                        ))}
-                    </FormGroup>
+                    <FormControl>
+                        <RadioGroup
+                            aria-labelledby="demo-row-radio-buttons-group-label"
+                            name="row-radio-buttons-group"
+                            onChange={handleSetCurrentParameter}
+                        >
+                            <FormControlLabel value="gdp-constant-2015-us" control={<Radio />} label="GDP(constant 2015 US$)" />
+                            <FormControlLabel value="gdp-constant-lcu" control={<Radio />} label="GDP(constant LCU)" />
+                            <FormControlLabel value="gdp-current-lcu" control={<Radio />} label="GDP(current LCU)" />
+                        </RadioGroup>
+                    </FormControl>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
@@ -110,7 +123,10 @@ function ControlPanel(props) {
                 <AccordionDetails>
                     <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
                         {props.years.map((item, index) => (
-                            <FormControlLabel key={item + '0'} control={<Checkbox id={item} onClick={handleCheckboxClickYears} />} label={item} />
+                            <FormControlLabel key={item + '0'}
+                                              control={<Checkbox id={"yr_"+item}
+                                              onClick={handleCheckboxClickYears}
+                            />} label={item} />
                         ))}
                     </Box>
 
