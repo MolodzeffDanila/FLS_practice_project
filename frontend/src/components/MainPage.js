@@ -42,18 +42,17 @@ function MainPage(props) {
     useEffect(() => {
         fetch('http://localhost:8080/api/v1/country')
             .then(response => response.json())
-            .then(data => {
-                setCountries(data);
+            .then(content => {
+                setCountries(content);
                 setYears(countYears(1960,2021));
                 setLoading(false); // Отключение лоадера
             })
             .catch(err => console.error(err));
-    }, [countries])
+    }, [])
 
     return (
         <>
             <MainNavBar />
-
             <Container maxWidth="false" >
                 <Typography variant='h2'>World bank</Typography>
                 <Grid  container spacing={3}>
