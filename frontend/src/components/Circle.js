@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Typography } from "@mui/material";
+import React, {useEffect, useRef, useState} from 'react';
+import { Typography, MenuItem,Select } from "@mui/material";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -13,6 +13,7 @@ import {
 
 import { Pie } from 'react-chartjs-2';
 import Button from "@mui/material/Button";
+import TableCell from "@mui/material/TableCell";
 
 ChartJS.register(
     CategoryScale,
@@ -38,16 +39,29 @@ export const options = {
 };
 
 function Circle(props) {
-    const { data } = props
-    //console.log(data)
+    const { data } = props;
+
     const chartPieRef = useRef(null);
-    const labels = data?.map((item) => item.date)
-    const dataChart = {
-        labels,
-        datasets: [
-            {
-                label: 'Value',//ярлык
-                data: data?.map((item) => item.value),//набор данных
+
+    const [chartData, setChartData] = useState({labels:[],datasets:[]})
+    const [currentCountry, setCurrentCountry] = useState('');
+    const [circleCurrentData, setCircleCurrentData] = useState({})
+
+    useEffect(()=>{
+        let labels_ = data[0]?.years?.map((item) => item.year);
+        let datasets_ = [];
+        for(let country of data){
+            let data_ = [];
+            for(let year of country.years){
+                if (year.value === null){
+                    data_.push(0);
+                }else{
+                    data_.push(year.value);
+                }
+            }
+            datasets_.push({
+                data: data_,
+                label: country.country_name,
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
@@ -64,9 +78,14 @@ function Circle(props) {
                     'rgba(153, 102, 255, 0.2)',
                     'rgba(255, 159, 64, 0.2)',
                 ],
-            },
-        ],
-    };
+            })
+        }
+        setChartData({
+            labels:labels_,
+            datasets: datasets_
+        })
+        setCircleCurrentData({labels:labels_, datasets:datasets_[0]});
+    }, [data])
 
     const handlePieExport = () => {
         const link = document.createElement('a');//псевдомассив, содержащий все ссылки, имеющиеся в документе
@@ -75,12 +94,36 @@ function Circle(props) {
         link.click();//функция щелчка
         link.remove();
     }
+
+    const handleChange = (event) => {
+        setCurrentCountry(event.target.value);
+        for(let item of chartData.datasets){
+            if(event.target.value === item.label){
+                setCircleCurrentData({labels:chartData.labels, datasets:item});
+            }
+        }
+        console.log(chartData);
+    };
+
     return (
         <>
-            <Typography variant='h2'>Circle</Typography>
+            <Typography variant='h3'>Circle diagram</Typography>
+            <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={currentCountry}
+                label="Country"
+                onChange={handleChange}
+            >
+                {data.map((item) => (
+                    <MenuItem value={item.country_name}>
+                        {item.country_name}
+                    </MenuItem>
+                ))}
+            </Select>
             <div className='chart-container'>
                 <div className='chart'>
-                    <Pie options={options} data={dataChart} ref={chartPieRef} />
+                    <Pie options={options} data={circleCurrentData} ref={chartPieRef} />
                     <Button variant="contained" color='primary' onClick={handlePieExport}>Сохранить в формате png</Button>
                 </div>
             </div>

@@ -47,10 +47,8 @@ function MainPage(props) {
                 setYears(countYears(1960,2021));
                 setLoading(false); // Отключение лоадера
             })
-
             .catch(err => console.error(err));
-
-    }, [])
+    }, [countries])
 
     return (
         <>

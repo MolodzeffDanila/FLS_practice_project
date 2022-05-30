@@ -123,7 +123,10 @@ function ControlPanel(props) {
                 <AccordionDetails>
                     <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
                         {props.years.map((item, index) => (
-                            <FormControlLabel key={item + '0'} control={<Checkbox id={item} onClick={handleCheckboxClickYears} />} label={item} />
+                            <FormControlLabel key={item + '0'}
+                                              control={<Checkbox id={"yr_"+item}
+                                              onClick={handleCheckboxClickYears}
+                            />} label={item} />
                         ))}
                     </Box>
 
