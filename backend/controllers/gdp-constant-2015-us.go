@@ -7,7 +7,7 @@ import (
 // GetGDPConstant2015US godoc
 // @Summary Retrieves data from table `GDP (constant 2015 US$)`
 // @Produce json
-// @Param   country-code-alpha-3	query	string	false  "search by countries"
+// @Param   country-code-alpha-3	query	[]string	false  "search by countries" collectionFormat(csv) example(swe)
 // @Success 200 {array} models.CountryStatistic "OK"
 // @Failure	500 					    		  "Fail"
 // @Router /gdp-constant-2015-us [get]

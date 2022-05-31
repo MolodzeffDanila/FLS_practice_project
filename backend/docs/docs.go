@@ -32,7 +32,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/models.CountryStatistic"
+                                "$ref": "#/definitions/models.Country"
                             }
                         }
                     },
@@ -50,7 +50,12 @@ const docTemplate = `{
                 "summary": "Retrieves data from table ` + "`" + `GDP (constant 2015 US$)` + "`" + `",
                 "parameters": [
                     {
-                        "type": "string",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "example": "swe",
                         "description": "search by countries",
                         "name": "country-code-alpha-3",
                         "in": "query"
@@ -164,200 +169,289 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "models.Country": {
+            "type": "object",
+            "properties": {
+                "code_alpha_2": {
+                    "type": "string",
+                    "example": "SE"
+                },
+                "code_alpha_3": {
+                    "type": "string",
+                    "example": "SWE"
+                },
+                "code_numeric": {
+                    "type": "string",
+                    "example": "752"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Sweden"
+                },
+                "name_official": {
+                    "type": "string",
+                    "example": "SWEDEN"
+                }
+            }
+        },
         "models.CountryStatistic": {
             "type": "object",
             "properties": {
                 "country_code": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "SWE"
                 },
                 "country_name": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Sweden"
                 },
                 "yr_1960": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1961": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1962": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1963": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1964": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1965": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1966": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1967": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1968": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1969": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1970": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1971": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1972": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1973": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1974": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1975": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1976": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1977": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1978": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1979": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1980": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1981": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1982": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1983": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1984": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1985": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1986": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1987": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1988": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1989": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1990": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1991": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1992": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1993": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1994": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1995": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1996": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1997": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1998": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_1999": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2000": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2001": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2002": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2003": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2004": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2005": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2006": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2007": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2008": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2009": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2010": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2011": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2012": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2013": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2014": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2015": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2016": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2017": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2018": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2019": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2020": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 },
                 "yr_2021": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "876.543"
                 }
             }
         }
