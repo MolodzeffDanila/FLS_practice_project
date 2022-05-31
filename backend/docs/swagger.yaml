@@ -262,10 +262,14 @@ paths:
   /gdp-constant-lcu:
     get:
       parameters:
-      - description: search by countries
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
         in: query
+        items:
+          type: string
         name: country-code-alpha-3
-        type: string
+        type: array
       produces:
       - application/json
       responses:
@@ -281,10 +285,14 @@ paths:
   /gdp-current-lcu:
     get:
       parameters:
-      - description: search by countries
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
         in: query
+        items:
+          type: string
         name: country-code-alpha-3
-        type: string
+        type: array
       produces:
       - application/json
       responses:
@@ -300,10 +308,14 @@ paths:
   /gdp-current-us:
     get:
       parameters:
-      - description: search by countries
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
         in: query
+        items:
+          type: string
         name: country-code-alpha-3
-        type: string
+        type: array
       produces:
       - application/json
       responses:

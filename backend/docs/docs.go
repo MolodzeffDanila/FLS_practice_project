@@ -85,7 +85,12 @@ const docTemplate = `{
                 "summary": "Retrieves data from table ` + "`" + `GDP (constant LCU)` + "`" + `",
                 "parameters": [
                     {
-                        "type": "string",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "example": "swe",
                         "description": "search by countries",
                         "name": "country-code-alpha-3",
                         "in": "query"
@@ -115,7 +120,12 @@ const docTemplate = `{
                 "summary": "Retrieves data from table ` + "`" + `GDP (current LCU)` + "`" + `",
                 "parameters": [
                     {
-                        "type": "string",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "example": "swe",
                         "description": "search by countries",
                         "name": "country-code-alpha-3",
                         "in": "query"
@@ -145,7 +155,12 @@ const docTemplate = `{
                 "summary": "Retrieves data from table ` + "`" + `GDP (current US$)` + "`" + `",
                 "parameters": [
                     {
-                        "type": "string",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "example": "swe",
                         "description": "search by countries",
                         "name": "country-code-alpha-3",
                         "in": "query"
