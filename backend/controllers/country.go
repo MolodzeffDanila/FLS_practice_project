@@ -9,8 +9,8 @@ import (
 // GetCountries godoc
 // @Summary Retrieves data from table `Country`
 // @Produce json
-// @Success 200 {array} models.CountryStatistic "OK"
-// @Failure	500 					    		  "Fail"
+// @Success 200 {array} models.Country "OK"
+// @Failure	500 					   "Fail"
 // @Router /country [get]
 func GetCountries(c *gin.Context) {
 	country := new(models.Country)
