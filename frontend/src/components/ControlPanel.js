@@ -108,6 +108,7 @@ function ControlPanel(props) {
                             <FormControlLabel value="gdp-constant-2015-us" control={<Radio />} label="GDP(constant 2015 US$)" />
                             <FormControlLabel value="gdp-constant-lcu" control={<Radio />} label="GDP(constant LCU)" />
                             <FormControlLabel value="gdp-current-lcu" control={<Radio />} label="GDP(current LCU)" />
+                            <FormControlLabel value="gdp-current-us" control={<Radio />} label="GDP(current US$)" />
                         </RadioGroup>
                     </FormControl>
                 </AccordionDetails>
