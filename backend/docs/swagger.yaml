@@ -1,0 +1,331 @@
+basePath: /api/v1
+definitions:
+  models.Country:
+    properties:
+      code_alpha_2:
+        example: SE
+        type: string
+      code_alpha_3:
+        example: SWE
+        type: string
+      code_numeric:
+        example: "752"
+        type: string
+      name:
+        example: Sweden
+        type: string
+      name_official:
+        example: SWEDEN
+        type: string
+    type: object
+  models.CountryStatistic:
+    properties:
+      country_code:
+        example: SWE
+        type: string
+      country_name:
+        example: Sweden
+        type: string
+      yr_1960:
+        example: "876.543"
+        type: string
+      yr_1961:
+        example: "876.543"
+        type: string
+      yr_1962:
+        example: "876.543"
+        type: string
+      yr_1963:
+        example: "876.543"
+        type: string
+      yr_1964:
+        example: "876.543"
+        type: string
+      yr_1965:
+        example: "876.543"
+        type: string
+      yr_1966:
+        example: "876.543"
+        type: string
+      yr_1967:
+        example: "876.543"
+        type: string
+      yr_1968:
+        example: "876.543"
+        type: string
+      yr_1969:
+        example: "876.543"
+        type: string
+      yr_1970:
+        example: "876.543"
+        type: string
+      yr_1971:
+        example: "876.543"
+        type: string
+      yr_1972:
+        example: "876.543"
+        type: string
+      yr_1973:
+        example: "876.543"
+        type: string
+      yr_1974:
+        example: "876.543"
+        type: string
+      yr_1975:
+        example: "876.543"
+        type: string
+      yr_1976:
+        example: "876.543"
+        type: string
+      yr_1977:
+        example: "876.543"
+        type: string
+      yr_1978:
+        example: "876.543"
+        type: string
+      yr_1979:
+        example: "876.543"
+        type: string
+      yr_1980:
+        example: "876.543"
+        type: string
+      yr_1981:
+        example: "876.543"
+        type: string
+      yr_1982:
+        example: "876.543"
+        type: string
+      yr_1983:
+        example: "876.543"
+        type: string
+      yr_1984:
+        example: "876.543"
+        type: string
+      yr_1985:
+        example: "876.543"
+        type: string
+      yr_1986:
+        example: "876.543"
+        type: string
+      yr_1987:
+        example: "876.543"
+        type: string
+      yr_1988:
+        example: "876.543"
+        type: string
+      yr_1989:
+        example: "876.543"
+        type: string
+      yr_1990:
+        example: "876.543"
+        type: string
+      yr_1991:
+        example: "876.543"
+        type: string
+      yr_1992:
+        example: "876.543"
+        type: string
+      yr_1993:
+        example: "876.543"
+        type: string
+      yr_1994:
+        example: "876.543"
+        type: string
+      yr_1995:
+        example: "876.543"
+        type: string
+      yr_1996:
+        example: "876.543"
+        type: string
+      yr_1997:
+        example: "876.543"
+        type: string
+      yr_1998:
+        example: "876.543"
+        type: string
+      yr_1999:
+        example: "876.543"
+        type: string
+      yr_2000:
+        example: "876.543"
+        type: string
+      yr_2001:
+        example: "876.543"
+        type: string
+      yr_2002:
+        example: "876.543"
+        type: string
+      yr_2003:
+        example: "876.543"
+        type: string
+      yr_2004:
+        example: "876.543"
+        type: string
+      yr_2005:
+        example: "876.543"
+        type: string
+      yr_2006:
+        example: "876.543"
+        type: string
+      yr_2007:
+        example: "876.543"
+        type: string
+      yr_2008:
+        example: "876.543"
+        type: string
+      yr_2009:
+        example: "876.543"
+        type: string
+      yr_2010:
+        example: "876.543"
+        type: string
+      yr_2011:
+        example: "876.543"
+        type: string
+      yr_2012:
+        example: "876.543"
+        type: string
+      yr_2013:
+        example: "876.543"
+        type: string
+      yr_2014:
+        example: "876.543"
+        type: string
+      yr_2015:
+        example: "876.543"
+        type: string
+      yr_2016:
+        example: "876.543"
+        type: string
+      yr_2017:
+        example: "876.543"
+        type: string
+      yr_2018:
+        example: "876.543"
+        type: string
+      yr_2019:
+        example: "876.543"
+        type: string
+      yr_2020:
+        example: "876.543"
+        type: string
+      yr_2021:
+        example: "876.543"
+        type: string
+    type: object
+info:
+  contact:
+    email: muratom73@gmail.com
+    name: muratom
+  description: World Bank GPD API
+  termsOfService: http://swagger.io/terms/
+  title: World Bank GDP API
+  version: "1.0"
+paths:
+  /country:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Country'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `Country`
+  /gdp-constant-2015-us:
+    get:
+      parameters:
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
+        in: query
+        items:
+          type: string
+        name: country-code-alpha-3
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (constant 2015 US$)`
+  /gdp-constant-lcu:
+    get:
+      parameters:
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
+        in: query
+        items:
+          type: string
+        name: country-code-alpha-3
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (constant LCU)`
+  /gdp-current-lcu:
+    get:
+      parameters:
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
+        in: query
+        items:
+          type: string
+        name: country-code-alpha-3
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (current LCU)`
+  /gdp-current-us:
+    get:
+      parameters:
+      - collectionFormat: csv
+        description: search by countries
+        example: swe
+        in: query
+        items:
+          type: string
+        name: country-code-alpha-3
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CountryStatistic'
+            type: array
+        "500":
+          description: Fail
+      summary: Retrieves data from table `GDP (current US$)`
+swagger: "2.0"
